@@ -1,12 +1,12 @@
 {
-  "name": "alipay",
-  "version": "0.0.0",
+  "name": "@ycnt/alipay",
+  "version": "1.0.0",
   "description": "alipay",
   "license": "MIT",
   "repository": "",
   "author": {
-    "name": "",
-    "email": "",
+    "name": "Yu Chen",
+    "email": "yu.chen@live.ie",
     "url": ""
   },
   "keywords": [
@@ -30,6 +30,7 @@
     "watch:test": "jest --watch"
   },
   "dependencies": {
+    "moment": "^2.19.2",
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
@@ -39,7 +40,6 @@
     "coveralls": "^2.0.0",
     "jest": "^20.0.4",
     "jest-environment-node-debug": "^2.0.0",
-    "moment": "^2.19.2",
     "prettier": "^1.5.2",
     "rimraf": "^2.0.0",
     "ts-jest": "^20.0.7",
