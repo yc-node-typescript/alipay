@@ -25,7 +25,7 @@ test('Should sign rsa2 and verify correctly', () => {
 test('Should formatParams', () => {
   const params = {
     a: '1',
-    b: '{}'
+    b: '{}',
   };
   const formatted = utils.formatParams(params);
   expect(formatted).toBe('a=1&b={}');
@@ -34,7 +34,7 @@ test('Should formatParams', () => {
 test('Should signParams', () => {
   const params = {
     a: '1',
-    b: '{}'
+    b: '{}',
   };
   const signed = utils.signParams(params, rsaPrivate, 'RSA');
   const formatted = utils.formatParams(params);

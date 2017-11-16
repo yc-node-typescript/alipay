@@ -6,7 +6,6 @@
 // export const alipay_gate_way = 'https://openapi.alipay.com/gateway.do';
 // export const alipay_gate_way_sandbox = 'https://openapi.alipaydev.com/gateway.do';
 
-
 // export enum METHODS {
 //   App = 'alipay.trade.app.pay',
 //   Wap = 'alipay.trade.wap.pay',
@@ -77,7 +76,7 @@
 // export interface IAppPayOptions {
 //   subject: string; // 商品的标题/交易标题/订单标题/订单关键字等
 //   out_trade_no: string; // 商户网站唯一订单号
-//   total_amount: string; // 订单总金额，单位为元，精确到小数点后两位，取值范围[0.01,100000000]  
+//   total_amount: string; // 订单总金额，单位为元，精确到小数点后两位，取值范围[0.01,100000000]
 
 //   body?: string; // 对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body
 //   timeout_express?: string; // 设置未付款支付宝交易的超时时间，一旦超时，该笔交易就会自动被关闭。当用户进入支付宝收银台页面（不包括登录页面），会触发即刻创建支付宝交易，此时开始计时。取值范围：1m～15d。m-分钟，h-小时，d-天，1c-当天（1c-当天的情况下，无论交易何时创建，都在0点关闭）。该参数数值不接受小数点， 如 1.5h，可转换为 90m。
@@ -218,7 +217,7 @@
 //     const sign = ret['sign'];
 //     delete ret.sign;
 //     delete ret.sign_type;
-  
+
 //     const response_type = [
 //       'alipay_trade_app_pay_response',
 //       'alipay_trade_create_response',
@@ -236,7 +235,7 @@
 //       if (next in ret) return ret[next];
 //       return curr;
 //     });
-  
+
 //     if (res) {
 //       return utils.signVerify(JSON.stringify(res), sign, this.rsaPublic, this.signType);
 //     } else {
@@ -249,9 +248,9 @@
 //       if (this.appAuthToken) {
 //         params.app_auth_token = this.appAuthToken;
 //       }
-    
+
 //       var body = utils.processParams(params, this.rsaPrivate, this.signType);
-    
+
 //       return utl.request({
 //         method: 'GET',
 //         url: (this.sandbox ? alipay_gate_way_sandbox : alipay_gate_way) + '?' + body
@@ -264,7 +263,6 @@
 //  * @param {Object} response 支付宝的响应报文
 //  */
 
-
 // /**
 //  * 查询交易状态 https://doc.open.alipay.com/doc2/apiDetail.htm?spm=a219a.7629065.0.0.PlTwKb&apiId=757&docType=4
 //  * @param {Object} opts
@@ -272,7 +270,6 @@
 //  * @param {String} [opts.tradeId]       支付宝交易号，和商户订单号不能同时为空
 //  * @param {String} [opts.appAuthToken]  https://doc.open.alipay.com/doc2/detail.htm?treeId=216&articleId=105193&docType=1
 //  */
-
 
 // /**
 //  * 统一收单交易关闭接口 https://doc.open.alipay.com/doc2/apiDetail.htm?spm=a219a.7629065.0.0.6VzMcn&apiId=1058&docType=4
@@ -302,7 +299,6 @@
 //     url: (this.sandbox ? alipay_gate_way_sandbox : alipay_gate_way) + '?' + body
 //   });
 // };
-
 
 // /**
 //  * 统一收单交易退款接口 https://doc.open.alipay.com/doc2/apiDetail.htm?spm=a219a.7629065.0.0.PlTwKb&apiId=759&docType=4
@@ -343,7 +339,6 @@
 //   });
 // };
 
-
 // /**
 //  * 统一收单交易退款查询 https://doc.open.alipay.com/doc2/apiDetail.htm?docType=4&apiId=1049
 //  * @param {Object} opts
@@ -372,7 +367,6 @@
 //     url: (this.sandbox ? alipay_gate_way_sandbox : alipay_gate_way) + '?' + body
 //   });
 // };
-
 
 // /**
 //  * 查询对账单下载地址 https://doc.open.alipay.com/doc2/apiDetail.htm?spm=a219a.7629065.0.0.iX5mPA&apiId=1054&docType=4

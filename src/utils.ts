@@ -11,7 +11,7 @@ import * as crypto from 'crypto';
 export function verify(
   str: string,
   sign: string,
-  publicKey: string | Object,
+  publicKey: string | object,
   signType: 'RSA2' | 'RSA'
 ): boolean {
   let verify;
@@ -51,9 +51,7 @@ export function sign(
  * @param {Object} params  请求参数
  * @returns {Object}
  */
-export function formatParams(
-  params: any
-): string {
+export function formatParams(params: any): string {
   return Object.keys(params)
     .filter(k => params[k] !== undefined && params[k] !== '')
     .sort()

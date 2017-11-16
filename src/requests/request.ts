@@ -1,6 +1,6 @@
 export class Request {
-  method: string;
-  data: {
+  public method: string;
+  public data: {
     [x: string]: any;
   } = {};
   constructor(method: string) {

@@ -8,7 +8,7 @@ let rsaPublic: string;
 beforeAll(() => {
   rsaPrivate = readFileSync(__dirname + '/private.pem', 'utf-8');
   rsaPublic = readFileSync(__dirname + '/public.pem', 'utf-8');
-})
+});
 
 test('Should create a client object', () => {
   const client = new Client({
@@ -16,14 +16,14 @@ test('Should create a client object', () => {
     rsaPrivate: __dirname + '/private.pem',
     rsaPublic: __dirname + '/public.pem',
     signType: EClientSignType.RSA,
-    sandbox: true
+    sandbox: true,
   });
   expect(client).toMatchObject({
     appId: '123',
     rsaPrivate: rsaPrivate,
     rsaPublic: rsaPublic,
     signType: EClientSignType.RSA,
-    sandbox: true
+    sandbox: true,
   });
 });
 
@@ -31,14 +31,14 @@ test('Should create a client object with defaults', () => {
   const client = new Client({
     appId: '123',
     rsaPrivate: __dirname + '/private.pem',
-    rsaPublic: __dirname + '/public.pem'
+    rsaPublic: __dirname + '/public.pem',
   });
   expect(client).toMatchObject({
     appId: '123',
     rsaPrivate: rsaPrivate,
     rsaPublic: rsaPublic,
     signType: EClientSignType.RSA2,
-    sandbox: false
+    sandbox: false,
   });
 });
 
@@ -46,7 +46,7 @@ test('Should generate requestParams', () => {
   const client = new Client({
     appId: '123',
     rsaPrivate: __dirname + '/private.pem',
-    rsaPublic: __dirname + '/public.pem'
+    rsaPublic: __dirname + '/public.pem',
   });
   const reqParams = client.generateRequestParams(new Request('abc'));
   expect(reqParams).toMatchObject({
@@ -56,7 +56,7 @@ test('Should generate requestParams', () => {
     charset: 'utf-8',
     sign_type: client.signType,
     timestamp: moment().format('YYYY-MM-DD HH:mm:ss'),
-    version: '1.0'
+    version: '1.0',
   });
   expect(reqParams).toHaveProperty('sign');
 });
@@ -66,7 +66,7 @@ test('Should generate requestParams sandbox', async () => {
     appId: '2014072300007148',
     rsaPrivate: __dirname + '/private.pem',
     rsaPublic: __dirname + '/public.pem',
-    sandbox: true
+    sandbox: true,
   });
   const req = new Request('alipay.user.info.share');
   const res = await client.execute(req);
@@ -77,7 +77,7 @@ test('Should generate requestParams', async () => {
   const client = new Client({
     appId: '2014072300007148',
     rsaPrivate: __dirname + '/private.pem',
-    rsaPublic: __dirname + '/public.pem'
+    rsaPublic: __dirname + '/public.pem',
   });
   const req = new Request('alipay.user.info.share');
   const res = await client.execute(req);
