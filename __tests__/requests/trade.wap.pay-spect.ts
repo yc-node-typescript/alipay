@@ -33,6 +33,9 @@ test('wap set bizContent', () => {
         timeout_express: '12h', // 最晚付款时间
         auth_token: 'i am a auth_token',
         goods_type: EGoodType.Physical,
+        passback_params:{
+            reback: 'i am return back params'
+        },
         promo_params: { // 优惠参数
             discount: '7.5'
         },
@@ -58,6 +61,7 @@ test('wap set bizContent', () => {
             timeout_express: '12h', // 最晚付款时间
             auth_token: 'i am a auth_token',
             goods_type: EGoodType.Physical,
+            passback_params: encodeURIComponent('reback=i am return back params'),
             promo_params: JSON.stringify({ // 优惠参数
                 discount: '7.5'
             }),

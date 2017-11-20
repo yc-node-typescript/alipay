@@ -8,7 +8,7 @@ import {
 import { Request } from '../../request';
 import { watch } from 'fs';
 
-export interface IPagePayContent {
+export interface IPageBizContent {
   subject: string; // 商品的标题/交易标题/订单标题/订单关键字等
   out_trade_no: string; // 商户网站唯一订单号
   total_amount: string; // 订单总金额，单位为元，精确到小数点后两位，取值范围[0.01,100000000]
