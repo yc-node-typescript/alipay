@@ -75,7 +75,14 @@ export class Client {
     return params;
   }
 
-  public verify(type: string, res: any): boolean {
-    return verify(JSON.stringify(res[type]), res.sign, this.rsaPublic, this.signType);
+  /**
+   * 验证响应报文
+   * 
+   * @param  {string} field 需要验证的字段。例：alipay_user_info_share_response
+   * @param  {any} res 响应报文
+   * @returns boolean
+   */
+  public verify(field: string, res: any): boolean {
+    return verify(JSON.stringify(res[field]), res.sign, this.rsaPublic, this.signType);
   }
 }
