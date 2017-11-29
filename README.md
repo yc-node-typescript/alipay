@@ -20,3 +20,5 @@ yarn add @ycnt/alipay
 ## 支付API
 
 - [TradeAppPayRequest](./docs/trade/app.md)
+- [TradeWapPayRequest](./docs/trade/wap.md)
+- [TradePagePayRequest](./docs/trade/page.md)
