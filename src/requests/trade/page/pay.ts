@@ -1,5 +1,10 @@
-"use strict";
-import { EGoodType, EProductCode, EPayChanel, EQRPayMode } from '../bizContent/enum';
+'use strict';
+import {
+  EGoodType,
+  EProductCode,
+  EPayChanel,
+  EQRPayMode,
+} from '../bizContent/enum';
 import {
   IBizContentExtendParams,
   IBizContentPassbackParams,
@@ -27,39 +32,38 @@ export interface IPageBizContent {
   qrcode_width?: string; // 商户自定义二维码宽度。注：qrPayMode = 4 时该参数生效
 }
 
-export class TradePagePayRequest extends Request{
+export class TradePagePayRequest extends Request {
+  constructor() {
+    super('alipay.trade.page.pay');
+  }
 
-    constructor(){
-        super('alipay.trade.page.pay');
-    }
-
-    public setBizContent(bc: IPagePayContent): void {
-        this.data.bizContent = JSON.stringify(
-            Object.keys(bc)
-                .map(x => {
-                    switch(x) {
-                        case 'passback_params':
-                        return [
-                          x,
-                          encodeURIComponent(
-                            Object.keys(bc[x])
-                              .map(k => `${k}=${bc[x][k]}`)
-                              .join('&')
-                          ),
-                        ];
-                        case 'extend_params':
-                          return [x, JSON.stringify(bc[x])];
-                        case 'enable_pay_channels':
-                        case 'disable_pay_channels':
-                          return [x, bc[x].join(',')];
-                        default:
-                          return [x, (<any>bc)[x]];
-                    }
-                })
-                .reduce((a: any, b:[any, any]) =>{
-                    a[b[0]] = b[1];
-                    return a;
-                }, {})
-        )
-    }
+  public setBizContent(bc: IPageBizContent): void {
+    this.data.bizContent = JSON.stringify(
+      Object.keys(bc)
+        .map(x => {
+          switch (x) {
+            case 'passback_params':
+              return [
+                x,
+                encodeURIComponent(
+                  Object.keys(bc[x])
+                    .map(k => `${k}=${bc[x][k]}`)
+                    .join('&')
+                ),
+              ];
+            case 'extend_params':
+              return [x, JSON.stringify(bc[x])];
+            case 'enable_pay_channels':
+            case 'disable_pay_channels':
+              return [x, bc[x].join(',')];
+            default:
+              return [x, (<any>bc)[x]];
+          }
+        })
+        .reduce((a: any, b: [any, any]) => {
+          a[b[0]] = b[1];
+          return a;
+        }, {})
+    );
+  }
 }
