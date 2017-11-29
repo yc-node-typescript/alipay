@@ -2,7 +2,7 @@ import * as moment from 'moment';
 import * as rp from 'request-promise';
 import { readFileSync } from 'fs';
 import { Request } from './requests/request';
-import { signParams } from './utils';
+import { signParams, verify, formatParams } from './utils';
 
 export const alipay_gate_way = 'https://openapi.alipay.com/gateway.do';
 export const alipay_gate_way_sandbox =
@@ -73,5 +73,21 @@ export class Client {
     );
     params.sign = signParams(params, this.rsaPrivate, this.signType);
     return params;
+  }
+
+  /**
+   * 验证响应报文
+   *
+   * @param  {string} field 需要验证的字段。例：alipay_user_info_share_response
+   * @param  {any} res 响应报文
+   * @returns boolean
+   */
+  public verify(field: string, res: any): boolean {
+    return verify(
+      JSON.stringify(res[field]),
+      res.sign,
+      this.rsaPublic,
+      this.signType
+    );
   }
 }

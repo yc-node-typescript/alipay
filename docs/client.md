@@ -45,5 +45,8 @@ sandbox: boolean = false;
 constructor(opts: IClientOptions);
 
 // 运行HTTP请求
-execute(req: Request): Promise<any> ;
+execute(req: Request): Promise<any>;
+
+// 验证
+public verify(field: string, res: any): boolean;
 ```
