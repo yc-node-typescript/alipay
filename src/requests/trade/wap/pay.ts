@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 import { EGoodType, EProductCode, EPayChanel } from '../bizContent/enum';
 import {
   IBizContentExtendParams,
@@ -16,7 +16,7 @@ export interface IWapBizContent {
   time_expire?: string; // 绝对超时时间，格式为yyyy-MM-dd HH:mm。 注：1）以支付宝系统时间为准；2）如果和timeout_express参数同时传入，以time_expire为准。
   timeout_express?: string; // 该笔订单允许的最晚付款时间，逾期将关闭交易。取值范围：1m～15d。m-分钟，h-小时，d-天，1c-当天（1c-当天的情况下，无论交易何时创建，都在0点关闭）。 该参数数值不接受小数点， 如 1.5h，可转换为 90m。注：若为空，则默认为15d。
   auth_token?: string; //  获取用户相关数据时，用于标识用户授权关系。注：若不属于支付宝业务经理提供签约服务的商户，暂不对外提供该功能，该参数使用无效。
-  goods_type?: EGoodType; // 
+  goods_type?: EGoodType; //
   passback_params?: IBizContentPassbackParams;
   promo_params?: IBizContentPromoParams; // 优惠参数(仅与支付宝协商后可用)
   extend_params?: IBizContentExtendParams; // 业务扩展参数 https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.3oJPAi&treeId=193&articleId=105465&docType=1#kzcs
@@ -27,16 +27,16 @@ export interface IWapBizContent {
 }
 
 export class TradeWapPayRequest extends Request {
-    constructor() {
-      super('alipay.trade.wap.pay');
-    }
-  
-    public setBizContent(bc: IWapPayContent): void {
-      this.data.bizContent = JSON.stringify(
-        Object.keys(bc)
-          .map(x => {
-            switch (x) {
-              case 'passback_params':
+  constructor() {
+    super('alipay.trade.wap.pay');
+  }
+
+  public setBizContent(bc: IWapBizContent): void {
+    this.data.bizContent = JSON.stringify(
+      Object.keys(bc)
+        .map(x => {
+          switch (x) {
+            case 'passback_params':
               return [
                 x,
                 encodeURIComponent(
@@ -45,29 +45,28 @@ export class TradeWapPayRequest extends Request {
                     .join('&')
                 ),
               ];
-              case 'promo_params':
-              case 'extend_params':
-                return [x, JSON.stringify(bc[x])];
-              case 'enable_pay_channels':
-              case 'disable_pay_channels':
-                return [x, bc[x].join(',')];
-              default:
-                return [x, (<any>bc)[x]];
-            }
-          })
-          .reduce((a: any, b: [any, any]) => {
-            a[b[0]] = b[1];
-            return a;
-          }, {})
-      );
-    }
-    //  练练手
-    // public sum(arr: any[]){
-    //     let sumResult = 0;
-    //     arr.reduce((pre, curr)=>{
-    //         return sumResult = pre+curr;
-    //     });
-    //     return sumResult;
-    // }
+            case 'promo_params':
+            case 'extend_params':
+              return [x, JSON.stringify(bc[x])];
+            case 'enable_pay_channels':
+            case 'disable_pay_channels':
+              return [x, bc[x].join(',')];
+            default:
+              return [x, (<any>bc)[x]];
+          }
+        })
+        .reduce((a: any, b: [any, any]) => {
+          a[b[0]] = b[1];
+          return a;
+        }, {})
+    );
+  }
+  //  练练手
+  // public sum(arr: any[]){
+  //     let sumResult = 0;
+  //     arr.reduce((pre, curr)=>{
+  //         return sumResult = pre+curr;
+  //     });
+  //     return sumResult;
+  // }
 }
-
