@@ -5,7 +5,7 @@ let rsaPrivate: string;
 let rsaPublic: string;
 beforeAll(() => {
   rsaPrivate = readFileSync(__dirname + '/private.pem', 'utf-8');
-  rsaPublic = readFileSync(__dirname + '/public.pem', 'utf-8');
+  rsaPublic = readFileSync(__dirname + '/public_local.pem', 'utf-8');
 });
 
 test('Should sign rsa and verify correctly', () => {

@@ -2,7 +2,7 @@ import * as moment from 'moment';
 import * as rp from 'request-promise';
 import { readFileSync } from 'fs';
 import { Request } from './requests/request';
-import { signParams } from './utils';
+import { signParams, verify, formatParams } from './utils';
 
 export const alipay_gate_way = 'https://openapi.alipay.com/gateway.do';
 export const alipay_gate_way_sandbox =
@@ -73,5 +73,9 @@ export class Client {
     );
     params.sign = signParams(params, this.rsaPrivate, this.signType);
     return params;
+  }
+
+  public verify(type: string, res: any): boolean {
+    return verify(JSON.stringify(res[type]), res.sign, this.rsaPublic, this.signType);
   }
 }

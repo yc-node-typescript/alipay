@@ -63,7 +63,7 @@ test('Should generate requestParams', () => {
 
 test('Should generate requestParams sandbox', async () => {
   const client = new Client({
-    appId: '2014072300007148',
+    appId: '2016072400106490',
     rsaPrivate: __dirname + '/private.pem',
     rsaPublic: __dirname + '/public.pem',
     sandbox: true,
@@ -71,11 +71,14 @@ test('Should generate requestParams sandbox', async () => {
   const req = new Request('alipay.user.info.share');
   const res = await client.execute(req);
   expect(res).toHaveProperty('alipay_user_info_share_response');
+  console.log(res);
+  const verify = client.verify('alipay_user_info_share_response', res);
+  expect(verify).toBe(true);
 });
 
 test('Should generate requestParams', async () => {
   const client = new Client({
-    appId: '2014072300007148',
+    appId: '2016072400106490',
     rsaPrivate: __dirname + '/private.pem',
     rsaPublic: __dirname + '/public.pem',
   });
