@@ -2,6 +2,7 @@ import { Client, EClientSignType } from '../src/client';
 import { Request } from '../src/requests';
 import * as moment from 'moment';
 import { readFileSync } from 'fs';
+import * as utils from '../src/utils';
 
 let rsaPrivate: string;
 let rsaPublic: string;
@@ -85,4 +86,33 @@ test('Should generate requestParams', async () => {
   const req = new Request('alipay.user.info.share');
   const res = await client.execute(req);
   expect(res).toHaveProperty('alipay_user_info_share_response');
+});
+
+test('Should verify 0 parameter fail', async () => {
+  const client = new Client({
+    appId: '2016072400106490',
+    rsaPrivate: __dirname + '/private.pem',
+    rsaPublic: __dirname + '/public.pem',
+  });
+  const verify: any = client.verify;
+  const verified = await verify();
+  expect(verified).toBe(false);
+});
+
+test('Should verify 1 parameter success', async () => {
+  const client = new Client({
+    appId: '2016072400106490',
+    rsaPrivate: __dirname + '/private.pem',
+    rsaPublic: __dirname + '/public_local.pem',
+    signType: EClientSignType.RSA2,
+  });
+  const res: any = {
+    a: 1,
+    b: 2,
+  };
+  const sign = utils.signParams(res, client.rsaPrivate, client.signType);
+  res.sign = sign;
+  console.log(res);
+  const verified = await client.verify(res);
+  expect(verified).toBe(true);
 });
