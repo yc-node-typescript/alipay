@@ -104,11 +104,11 @@ test('Should verify 1 parameter success', async () => {
     appId: '2016072400106490',
     rsaPrivate: __dirname + '/private.pem',
     rsaPublic: __dirname + '/public_local.pem',
-    signType: EClientSignType.RSA2
+    signType: EClientSignType.RSA2,
   });
   const res: any = {
     a: 1,
-    b: 2
+    b: 2,
   };
   const sign = utils.signParams(res, client.rsaPrivate, client.signType);
   res.sign = sign;

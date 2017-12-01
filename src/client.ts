@@ -99,12 +99,7 @@ export class Client {
       const sign = res.sign;
       delete res.sign;
       delete res.sign_type;
-      return verify(
-        formatParams(res),
-        sign,
-        this.rsaPublic,
-        this.signType
-      )
+      return verify(formatParams(res), sign, this.rsaPublic, this.signType);
     }
     if (args.length === 2) {
       const field = args[0];
