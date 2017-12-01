@@ -82,12 +82,40 @@ export class Client {
    * @param  {any} res 响应报文
    * @returns boolean
    */
-  public verify(field: string, res: any): boolean {
-    return verify(
-      JSON.stringify(res[field]),
-      res.sign,
-      this.rsaPublic,
-      this.signType
-    );
+  public verify(field: string, res: any): boolean;
+
+  /**
+   * 验证响应报文
+   *
+   * @param  {string} field 需要验证的字段。例：alipay_user_info_share_response
+   * @param  {any} res 响应报文
+   * @returns boolean
+   */
+  public verify(res: any): boolean;
+
+  public verify(...args: any[]) {
+    if (args.length === 1) {
+      const res = Object.assign({}, args[0]);
+      const sign = res.sign;
+      delete res.sign;
+      delete res.sign_type;
+      return verify(
+        formatParams(res),
+        sign,
+        this.rsaPublic,
+        this.signType
+      )
+    }
+    if (args.length === 2) {
+      const field = args[0];
+      const res = args[1];
+      return verify(
+        JSON.stringify(res[field]),
+        res.sign,
+        this.rsaPublic,
+        this.signType
+      );
+    }
+    return false;
   }
 }
