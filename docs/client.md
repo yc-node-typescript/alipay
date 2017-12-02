@@ -47,6 +47,9 @@ constructor(opts: IClientOptions);
 // 运行HTTP请求
 execute(req: Request): Promise<any>;
 
+// 创建请求参数
+public generateRequestParams(req: Request): IClientRequestParams;
+
 // 验证
 public verify(field: string, res: any): boolean;
 ```

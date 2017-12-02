@@ -10,7 +10,7 @@ req.setBizContent({
   out_trade_no: 'test001',
   total_amount: '0.01' 
 })
-const res = await client.execute(req);
+const res = await client.generateRequestParams(req);
 console.log(res);
 ```
 
