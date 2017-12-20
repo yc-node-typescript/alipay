@@ -14,11 +14,15 @@ yarn add @ycnt/alipay
 
 ## 基础API
 
-- [Client](./docs/client.md)
-- [Request](./docs/client.md)
+- [Client](https://yc-node-typescript.github.io/alipay/classes/_client_.client.html)
+- [Request](https://yc-node-typescript.github.io/alipay/classes/_requests_request_.request.html)
 
 ## 支付API
 
-- [TradeAppPayRequest](./docs/trade/app.md)
-- [TradeWapPayRequest](./docs/trade/wap.md)
-- [TradePagePayRequest](./docs/trade/page.md)
+- [TradeAppPayRequest](https://yc-node-typescript.github.io/alipay/classes/_requests_trade_app_pay_.tradeapppayrequest.html)
+- [TradeWapPayRequest](https://yc-node-typescript.github.io/alipay/classes/_requests_trade_wap_pay_.tradewappayrequest.html)
+- [TradePagePayRequest](https://yc-node-typescript.github.io/alipay/classes/_requests_trade_page_pay_.tradepagepayrequest.html)
+
+## 退款API
+
+- [TradeRefundRequest](https://yc-node-typescript.github.io/alipay/classes/_requests_trade_refund_refund_.traderefundrequest.html)
