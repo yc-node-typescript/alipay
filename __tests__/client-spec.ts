@@ -7,14 +7,15 @@ import * as utils from '../src/utils';
 jest.mock('request-promise', () => {
   return {
     get: jest.fn().mockImplementation(() => {
-      return Promise.resolve({ 
-        alipay_user_info_share_response:
-        { code: '20001',
+      return Promise.resolve({
+        alipay_user_info_share_response: {
+          code: '20001',
           msg: 'Insufficient Token Permissions',
           sub_code: 'aop.invalid-auth-token',
-          sub_msg: '无效的访问令牌' 
+          sub_msg: '无效的访问令牌',
         },
-       sign: 'RDPaAY3zHepMOIqVAWMpJ9xt4iQ7gZ521BFXvLmUEV5Lrb1+IIJEobqlCCmxWp+XvpeIwkwqknYipFCpj/cJZGieZxk6XzoYA249/EVUAT8c2yzbET/hLxfcN2F5AyYvwcl/hhdD0buEHzl7nkD+GHqa4GNr4ywND0M5U3xQLJcVMPjXyeh8hmjH6QX3uxmU/lUBJ69GSVrS6D5Hsc+3OiTicPUoKdUAWhGcP/SLwHsCGVALlsqGiAIF9vU9IyL3bXwW2d/K7TCFrRo1gw2fP53r6/HRWoj3aqaMZWC4bHFjr+bXm950AMl84/hs7FlDwCDeKRSOtV+ZAn3iNaMRWQ==' 
+        sign:
+          'RDPaAY3zHepMOIqVAWMpJ9xt4iQ7gZ521BFXvLmUEV5Lrb1+IIJEobqlCCmxWp+XvpeIwkwqknYipFCpj/cJZGieZxk6XzoYA249/EVUAT8c2yzbET/hLxfcN2F5AyYvwcl/hhdD0buEHzl7nkD+GHqa4GNr4ywND0M5U3xQLJcVMPjXyeh8hmjH6QX3uxmU/lUBJ69GSVrS6D5Hsc+3OiTicPUoKdUAWhGcP/SLwHsCGVALlsqGiAIF9vU9IyL3bXwW2d/K7TCFrRo1gw2fP53r6/HRWoj3aqaMZWC4bHFjr+bXm950AMl84/hs7FlDwCDeKRSOtV+ZAn3iNaMRWQ==',
       });
     }),
   };

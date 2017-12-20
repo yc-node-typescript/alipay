@@ -1,6 +1,6 @@
 /**
  * 支付宝接口请求
- * 
+ *
  * ```ts
  * import { Client, Request } from '@ycnt/alipay';
  *
@@ -11,7 +11,7 @@
  *
  * const res = await client.execute(req);
  * console.log(res);
- * 
+ *
  * ```
  */
 export class Request {
