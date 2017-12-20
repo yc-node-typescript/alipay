@@ -72,7 +72,6 @@ test('Should generate requestParams sandbox', async () => {
   const req = new Request('alipay.user.info.share');
   const res = await client.execute(req);
   expect(res).toHaveProperty('alipay_user_info_share_response');
-  console.log(res);
   const verify = client.verify('alipay_user_info_share_response', res);
   expect(verify).toBe(true);
 });
@@ -112,7 +111,6 @@ test('Should verify 1 parameter success', async () => {
   };
   const sign = utils.signParams(res, client.rsaPrivate, client.signType);
   res.sign = sign;
-  console.log(res);
   const verified = await client.verify(res);
   expect(verified).toBe(true);
 });
