@@ -105,7 +105,7 @@ export interface IClientRequestParams {
 
 /**
  * 客户端配置
- * 
+ *
  * ```ts
  * import { Client, EClientSignType } from '@ycnt/alipay';
  *
