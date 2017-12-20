@@ -89,20 +89,20 @@ export interface IPageBizContent {
 
 /**
  * Page支付
- * 
+ *
  * ```ts
  * import { Client, TradePagePayRequest} from '@ycnt/alipay';
- * 
+ *
  * const client = new Client(...);
  * const req = new TradePagePayRequest();
  * req.setBizContent({
  *   subject: 'test',
  *   out_trade_no: 'test001',
- *   total_amount: '0.01' 
+ *   total_amount: '0.01'
  * })
  * const res = await client.generateRequestParams(req);
  * console.log(res);
- * 
+ *
  * ```
  */
 export class TradePagePayRequest extends Request {

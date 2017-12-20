@@ -28,7 +28,7 @@
     "coverage": "jest --coverage",
     "watch": "npm run build -- --watch",
     "watch:test": "jest --watch",
-    "docs": "typedoc ./src --out ./docs --excludeExternals --theme markdown"
+    "docs": "typedoc ./src --out ./docs --excludeExternals"
   },
   "dependencies": {
     "moment": "^2.19.2",
@@ -48,7 +48,6 @@
     "tslint": "^5.0.0",
     "tslint-config-prettier": "^1.1.0",
     "typedoc": "^0.9.0",
-    "typedoc-plugin-markdown": "^1.0.11",
     "typescript": "^2.0.0"
   },
   "engines": {

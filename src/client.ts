@@ -108,7 +108,7 @@ export interface IClientRequestParams {
  * 
  * ```ts
  * import { Client, EClientSignType } from '@ycnt/alipay';
-
+ *
  * const client = new Client({
  *   appId: '你的支付宝 APP ID',
  *   rsaPrivate: '私钥PATH',

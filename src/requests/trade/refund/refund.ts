@@ -3,10 +3,10 @@ import { Request } from '../../request';
 
 /**
  * 退款
- * 
+ *
  * ```ts
  * import { Client, TradeRefundRequest } from '@ycnt/alipay';
- * 
+ *
  * const client = new Client(...);
  * const req = new TradeRefundRequest();
  * req.setBizContent({
@@ -15,7 +15,7 @@ import { Request } from '../../request';
  * });
  * const res = await client.execute(req);
  * console.log(res);
- * 
+ *
  * ```
  */
 export class TradeRefundRequest extends Request {

@@ -80,7 +80,7 @@ export interface IWapBizContent {
 
 /**
  * Wap支付
- * 
+ *
  * ```ts
  * import { Client, TradeWapPayRequest } from '@ycnt/alipay';
  *

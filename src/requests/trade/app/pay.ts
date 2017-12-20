@@ -72,10 +72,10 @@ export interface IAppBizContent {
 
 /**
  * APP支付
- * 
+ *
  * ```ts
  * import { Client, TradeAppPayRequest } from '@ycnt/alipay';
- * 
+ *
  * const client = new Client(...);
  * const req = new TradeAppPayRequest();
  * req.setBizContent({
@@ -85,7 +85,7 @@ export interface IAppBizContent {
  * });
  * const res = await client.generateRequestParams(req);
  * console.log(res);
- * 
+ *
  * ```
  */
 export class TradeAppPayRequest extends Request {
