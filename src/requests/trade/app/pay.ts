@@ -117,6 +117,7 @@ export class TradeAppPayRequest extends Request {
               return [x, (<any>bc)[x]];
           }
         })
+        .concat([['product_code', EProductCode.QUICK_MSECURITY_PAY]])
         .reduce((a: any, b: [any, any]) => {
           a[b[0]] = b[1];
           return a;

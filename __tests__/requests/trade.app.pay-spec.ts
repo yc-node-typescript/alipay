@@ -13,6 +13,7 @@ test('Should set simple bizContent', () => {
       subject: 'test',
       out_trade_no: 'test001',
       total_amount: '0.01',
+      product_code: 'QUICK_MSECURITY_PAY',
     })
   );
 });
@@ -61,6 +62,7 @@ test('Should set advanced bizContent', () => {
       enable_pay_channels: [EPayChanel.balance, EPayChanel.bankPay].join(','),
       disable_pay_channels: '',
       store_id: 's001',
+      product_code: 'QUICK_MSECURITY_PAY',
     })
   );
 });
