@@ -8,7 +8,7 @@ test('Should set simple bizContent', () => {
     total_amount: '0.01',
   });
   expect(req.method).toBe('alipay.trade.app.pay');
-  expect(req.data.bizContent).toBe(
+  expect(req.data.biz_content).toBe(
     JSON.stringify({
       subject: 'test',
       out_trade_no: 'test001',
@@ -42,7 +42,7 @@ test('Should set advanced bizContent', () => {
     disable_pay_channels: [],
     store_id: 's001',
   });
-  expect(req.data.bizContent).toBe(
+  expect(req.data.biz_content).toBe(
     JSON.stringify({
       subject: 'test2',
       out_trade_no: 'test002',

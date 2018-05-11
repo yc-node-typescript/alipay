@@ -15,7 +15,7 @@ test('wap set bizContent', () => {
   });
 
   expect(wapReq.method).toBe('alipay.trade.wap.pay');
-  expect(wapReq.data.bizContent).toBe(
+  expect(wapReq.data.biz_content).toBe(
     JSON.stringify({
       subject: 'test wap',
       out_trade_no: 'test wap0',
@@ -56,7 +56,7 @@ test('wap set advanced bizcontent', () => {
   });
 
   expect(wapReq.method).toBe('alipay.trade.wap.pay');
-  expect(wapReq.data.bizContent).toBe(
+  expect(wapReq.data.biz_content).toBe(
     JSON.stringify({
       subject: 'test wap',
       out_trade_no: 'test wap0',

@@ -94,7 +94,7 @@ export class TradeAppPayRequest extends Request {
   }
 
   public setBizContent(bc: IAppBizContent): void {
-    this.data.bizContent = JSON.stringify(
+    this.data.biz_content = JSON.stringify(
       Object.keys(bc)
         .map(x => {
           switch (x) {

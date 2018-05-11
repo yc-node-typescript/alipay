@@ -111,7 +111,7 @@ export class TradePagePayRequest extends Request {
   }
 
   public setBizContent(bc: IPageBizContent): void {
-    this.data.bizContent = JSON.stringify(
+    this.data.biz_content = JSON.stringify(
       Object.keys(bc)
         .map(x => {
           switch (x) {
