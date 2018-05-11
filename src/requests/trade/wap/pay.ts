@@ -105,7 +105,7 @@ export class TradeWapPayRequest extends Request {
    * @param bc {IWapBizContent} 参数
    */
   public setBizContent(bc: IWapBizContent): void {
-    this.data.bizContent = JSON.stringify(
+    this.data.biz_content = JSON.stringify(
       Object.keys(bc)
         .map(x => {
           switch (x) {

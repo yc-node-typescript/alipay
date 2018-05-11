@@ -15,7 +15,7 @@ test('page set bizContent', () => {
   });
 
   expect(pageReq.method).toBe('alipay.trade.page.pay');
-  expect(pageReq.data.bizContent).toBe(
+  expect(pageReq.data.biz_content).toBe(
     JSON.stringify({
       subject: 'test page',
       out_trade_no: 'test page0',
@@ -49,7 +49,7 @@ test('page set advanced bizContent', () => {
     qrcode_width: '4', // 商户自定义二维码宽度。注：qrPayMode = 4 时该参数生效
   });
 
-  expect(pageReq.data.bizContent).toBe(
+  expect(pageReq.data.biz_content).toBe(
     JSON.stringify({
       subject: 'test page',
       out_trade_no: 'test page0',
