@@ -14,15 +14,19 @@ yarn add @ycnt/alipay
 
 ## 基础API
 
-- [Client](https://yc-node-typescript.github.io/alipay/classes/_client_.client.html)
-- [Request](https://yc-node-typescript.github.io/alipay/classes/_requests_request_.request.html)
+- [Client](/docs/classes/_client_.client.md)
+- [Request](/docs/classes/_requests_request_.request.md)
 
 ## 支付API
 
-- [TradeAppPayRequest](https://yc-node-typescript.github.io/alipay/classes/_requests_trade_app_pay_.tradeapppayrequest.html)
-- [TradeWapPayRequest](https://yc-node-typescript.github.io/alipay/classes/_requests_trade_wap_pay_.tradewappayrequest.html)
-- [TradePagePayRequest](https://yc-node-typescript.github.io/alipay/classes/_requests_trade_page_pay_.tradepagepayrequest.html)
+- [TradeAppPayRequest](/docs/classes/_requests_trade_app_pay_.tradeapppayrequest.md)
+- [TradeWapPayRequest](/docs/classes/_requests_trade_wap_pay_.tradewappayrequest.md)
+- [TradePagePayRequest](/docs/classes/_requests_trade_page_pay_.tradepagepayrequest.md)
 
 ## 退款API
 
-- [TradeRefundRequest](https://yc-node-typescript.github.io/alipay/classes/_requests_trade_refund_refund_.traderefundrequest.html)
+- [TradeRefundRequest](/docs/classes/_requests_trade_refund_refund_.traderefundrequest.md)
+
+## Summary
+
+[/docs/SUMMARY.md](/docs/SUMMARY.md)
