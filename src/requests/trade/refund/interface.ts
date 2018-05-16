@@ -12,7 +12,7 @@ export interface IRefundBizContent {
   /**
    * 需要退款的金额，该金额不能大于订单金额,单位为元，支持两位小数
    */
-  refund_amount: number;
+  refund_amount: string;
 
   /**
    * 退款的原因说明
