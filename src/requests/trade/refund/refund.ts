@@ -24,6 +24,6 @@ export class TradeRefundRequest extends Request {
   }
 
   public setBizContent(bc: IRefundBizContent): void {
-    this.data.bizContent = JSON.stringify(bc);
+    this.data.biz_content = JSON.stringify(bc);
   }
 }
