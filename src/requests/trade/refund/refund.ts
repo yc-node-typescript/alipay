@@ -11,7 +11,7 @@ import { Request } from '../../request';
  * const req = new TradeRefundRequest();
  * req.setBizContent({
  *   out_trade_no: 'test001',
- *   refund_amount: 10,
+ *   refund_amount: '10',
  * });
  * const res = await client.execute(req);
  * console.log(res);
