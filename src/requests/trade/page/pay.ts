@@ -30,6 +30,11 @@ export interface IPageBizContent {
   total_amount: string;
 
   /**
+   * 销售产品码，与支付宝签约的产品码名称。 注：目前仅支持FAST_INSTANT_TRADE_PAY
+   */
+  product_code: EProductCode;
+
+  /**
    * 对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body
    */
   body?: string;
@@ -85,6 +90,11 @@ export interface IPageBizContent {
    * 商户自定义二维码宽度。注：qrPayMode = 4 时该参数生效
    */
   qrcode_width?: string;
+
+  /**
+   * 客户端回调地址，HTTP/HTTPS开头字符串
+   */
+  return_url?: string;
 }
 
 /**
