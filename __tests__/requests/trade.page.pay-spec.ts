@@ -3,6 +3,7 @@ import {
   EPayChanel,
   TradePagePayRequest,
   EQRPayMode,
+  EProductCode,
 } from '../../src';
 import { exec } from 'child_process';
 
@@ -12,6 +13,7 @@ test('page set bizContent', () => {
     subject: 'test page',
     out_trade_no: 'test page0',
     total_amount: '0.01',
+    product_code: EProductCode.FAST_INSTANT_TRADE_PAY,
   });
 
   expect(pageReq.method).toBe('alipay.trade.page.pay');
@@ -20,6 +22,7 @@ test('page set bizContent', () => {
       subject: 'test page',
       out_trade_no: 'test page0',
       total_amount: '0.01',
+      product_code: 'FAST_INSTANT_TRADE_PAY',
     })
   );
 });
@@ -30,6 +33,7 @@ test('page set advanced bizContent', () => {
     subject: 'test page',
     out_trade_no: 'test page0',
     total_amount: '0.01',
+    product_code: EProductCode.FAST_INSTANT_TRADE_PAY,
     body: 'i am a advanced body', // 对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body
     goods_type: EGoodType.Virtual, // guosidi 改动
     goods_detail: 'this is a coat', // 订单包含的商品列表信息，JSON格式，例如：{"show_url":"https://example/good/id"}
@@ -54,6 +58,7 @@ test('page set advanced bizContent', () => {
       subject: 'test page',
       out_trade_no: 'test page0',
       total_amount: '0.01',
+      product_code: 'FAST_INSTANT_TRADE_PAY',
       body: 'i am a advanced body', // 对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body
       goods_type: EGoodType.Virtual, // guosidi 改动
       goods_detail: 'this is a coat', // 订单包含的商品列表信息，JSON格式，例如：{"show_url":"https://example/good/id"}
